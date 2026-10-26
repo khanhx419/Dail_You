@@ -57,3 +57,6 @@ android/app/.cxx/
 
 # Current changelog
 changelog.txt
+
+# Local Kotlin build cache
+android/.kotlin/

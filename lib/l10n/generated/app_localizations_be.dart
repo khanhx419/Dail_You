@@ -9,7 +9,7 @@ class AppLocalizationsBe extends AppLocalizations {
   AppLocalizationsBe([String locale = 'be']) : super(locale);
 
   @override
-  String get appTitle => 'Daily You';
+  String get appTitle => 'Nhật Ký Việt';
 
   @override
   String get dailyReminderTitle => 'Занатуй сёння!';

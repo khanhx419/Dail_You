@@ -24,3 +24,8 @@ android {
 dependencies {
     implementation 'androidx.core:core-ktx:1.13.1'
 }
+
+// Keep Kotlin bytecode compatible with Java 17 regardless of the host JDK.
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+    compilerOptions.jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
+}

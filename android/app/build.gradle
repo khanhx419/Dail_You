@@ -48,7 +48,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.demizo.daily_you"
+        applicationId "vn.khanhx419.nhatkyviet"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
         minSdkVersion flutter.minSdkVersion
@@ -57,7 +57,7 @@ android {
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
 	vectorDrawables.generatedDensities = []
-        resValue "string", "app_name", "Daily You"
+        resValue "string", "app_name", "Nhật Ký Việt"
     }
 
     signingConfigs {
@@ -83,7 +83,7 @@ android {
             dimension "default"
             applicationIdSuffix ".dev"
             versionNameSuffix "-dev"
-            resValue "string", "app_name", "Daily You Dev"
+            resValue "string", "app_name", "Nhật Ký Việt Dev"
             signingConfig = signingConfigs.release
         }
     }
@@ -155,4 +155,9 @@ dependencies {
     implementation 'androidx.window:window:1.0.0'
     implementation 'androidx.window:window-java:1.0.0'
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.4'
+}
+
+// Keep Kotlin bytecode compatible with Java 17 regardless of the host JDK.
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+    compilerOptions.jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
 }

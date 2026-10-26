@@ -9,7 +9,7 @@ class AppLocalizationsCa extends AppLocalizations {
   AppLocalizationsCa([String locale = 'ca']) : super(locale);
 
   @override
-  String get appTitle => 'Daily You';
+  String get appTitle => 'Nhật Ký Việt';
 
   @override
   String get dailyReminderTitle => 'Registreu el vostre dia!';

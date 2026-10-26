@@ -1,0 +1,11 @@
+{
+  "version": "0.2.0",
+  "configurations": [{
+    "name": "Nhật Ký Việt Web",
+    "request": "launch",
+    "type": "dart",
+    "program": "lib/main_web.dart",
+    "deviceId": "chrome",
+    "args": ["--web-port", "8080"]
+  }]
+}

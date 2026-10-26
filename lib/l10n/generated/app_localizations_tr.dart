@@ -9,7 +9,7 @@ class AppLocalizationsTr extends AppLocalizations {
   AppLocalizationsTr([String locale = 'tr']) : super(locale);
 
   @override
-  String get appTitle => 'Daily You';
+  String get appTitle => 'Nhật Ký Việt';
 
   @override
   String get dailyReminderTitle => 'Bugünü Kayıtla!';

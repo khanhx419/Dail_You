@@ -54,7 +54,8 @@ class NotificationManager {
     await _notifications!.initialize(
         settings: const InitializationSettings(
             android: AndroidInitializationSettings('@drawable/ic_notification'),
-            linux: LinuxInitializationSettings(defaultActionName: 'Log Today')),
+            linux: LinuxInitializationSettings(
+                defaultActionName: 'Viết nhật ký hôm nay')),
         onDidReceiveNotificationResponse: backupCancelBackgroundHandler,
         onDidReceiveBackgroundNotificationResponse:
             backupCancelBackgroundHandler);

@@ -78,8 +78,8 @@ class Settings {
       Setting<String>("videoQualityLevel", VideoQuality.medium);
   static const suppressLargeAttachmentWarning =
       Setting<bool>("suppressLargeAttachmentWarning", false);
-  static const overrideLanguage =
-      Setting<Map<String, dynamic>?>("overrideLanguage", null);
+  static const overrideLanguage = Setting<Map<String, dynamic>?>(
+      "overrideLanguage", {"languageCode": "vi"});
   static const showFlashbacks = Setting<bool>("showFlashbacks", true);
   static const excludeBadDaysFromFlashbacks =
       Setting<bool>("excludeBadDaysFromFlashbacks", false);
@@ -289,6 +289,7 @@ class ConfigProvider with ChangeNotifier {
   };
 
   T get<T>(Setting<T> setting) {
+    if (!_config.containsKey(setting.key)) return setting.defaultValue;
     final value = _config[setting.key];
     return value is T ? value : setting.defaultValue;
   }
@@ -505,9 +506,10 @@ class ConfigProvider with ChangeNotifier {
 
   bool is24HourFormat() {
     if (PlatformDispatcher.instance.alwaysUse24HourFormat) return true;
-    String formattedTime =
-        DateFormat.jm(PlatformDispatcher.instance.locale.toString())
-            .format(DateTime.now());
+    String formattedTime = DateFormat.jm(
+            (getOverrideLanguage() ?? PlatformDispatcher.instance.locale)
+                .toString())
+        .format(DateTime.now());
     // If the output contains text, it's a 12-hour format
     return !formattedTime.contains(RegExp(r'[A-Za-z]'));
   }

@@ -17,7 +17,7 @@ final RegExp _reservedDeviceName =
 String? sanitizedStem(String? fileName) {
   if (fileName == null) return null;
   var stem = _truncateToBytes(
-      _clean(p.basenameWithoutExtension(fileName)), _maxStemBytes);
+      _clean(p.posix.basenameWithoutExtension(fileName)), _maxStemBytes);
   stem = stem.replaceAll(_outerDotsAndSpaces, '');
   if (stem.isEmpty) return null;
   return _reservedDeviceName.hasMatch(stem) ? '_$stem' : stem;
@@ -26,7 +26,7 @@ String? sanitizedStem(String? fileName) {
 String sanitizedExtension(String? fileName, String fallback) {
   if (fileName == null) return fallback;
   final extension = _truncateToBytes(
-      _clean(p.extension(fileName)).replaceAll(_outerDotsAndSpaces, ''),
+      _clean(p.posix.extension(fileName)).replaceAll(_outerDotsAndSpaces, ''),
       _maxExtensionBytes);
   return extension.isEmpty ? fallback : '.$extension';
 }

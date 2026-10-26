@@ -7,6 +7,7 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:android_alarm_manager_plus/android_alarm_manager_plus.dart';
+import 'package:daily_you/app_locale.dart';
 import 'package:daily_you/config_provider.dart';
 import 'package:daily_you/custom_locale_delegates.dart';
 import 'package:daily_you/database/app_database.dart';
@@ -391,7 +392,7 @@ Future<ForegroundServiceConfig> _autoBackupForegroundServiceConfig() async {
   return ForegroundServiceConfig(
     notificationId: backupNotificationId,
     notificationChannelId: backupNotificationChannelId,
-    notificationChannelName: backupNotificationChannelId,
+    notificationChannelName: 'Sao lưu nhật ký',
     notificationTitle: prefs
         .getString('creatingBackupStatusTemplate')
         ?.replaceFirst('{percent}', '0'),
@@ -499,7 +500,7 @@ class _MainAppState extends State<MainApp> {
             child: MaterialApp(
                 onGenerateTitle: (context) =>
                     AppLocalizations.of(context)!.appTitle,
-                title: 'Daily You',
+                title: 'Nhật Ký Việt',
                 themeMode: themeModeProvider.themeMode,
                 debugShowCheckedModeBanner: false,
                 localizationsDelegates: <LocalizationsDelegate<dynamic>>[
@@ -513,18 +514,7 @@ class _MainAppState extends State<MainApp> {
                       .where((locale) => locale.languageCode != "en")
                 ],
                 localeResolutionCallback: (locale, supportedLocales) {
-                  final override = configProvider.getOverrideLanguage();
-                  if (override != null) return override;
-
-                  if (locale != null) {
-                    for (final supported in supportedLocales) {
-                      if (supported.languageCode == locale.languageCode) {
-                        return supported;
-                      }
-                    }
-                  }
-
-                  return const Locale('en');
+                  return resolveAppLocale(locale);
                 },
                 theme: lightTheme,
                 darkTheme: darkTheme,

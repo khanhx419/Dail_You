@@ -40,6 +40,12 @@ class _AboutSettingsState extends State<AboutSettings> {
       ),
       body: ListView(
         children: [
+          const ListTile(
+            title: Text('Nhật Ký Việt'),
+            subtitle: Text(
+                'Bản Việt hóa dựa trên Daily You của Demizo và cộng đồng. '
+                'Đây là bản sửa đổi độc lập, không phải ứng dụng chính thức.'),
+          ),
           GestureDetector(
             child: SettingsIconAction(
                 title: AppLocalizations.of(context)!.settingsVersion,
@@ -47,7 +53,7 @@ class _AboutSettingsState extends State<AboutSettings> {
                 icon: Icon(Icons.open_in_new_rounded),
                 onPressed: () async {
                   await launchUrl(
-                      Uri.https("github.com", "/Demizo/Daily_You/releases"),
+                      Uri.https("github.com", "/khanhx419/Dail_You/releases"),
                       mode: LaunchMode.externalApplication);
                 }),
             onTap: () async {
@@ -76,10 +82,10 @@ class _AboutSettingsState extends State<AboutSettings> {
           ),
           SettingsIconAction(
               title: AppLocalizations.of(context)!.settingsSourceCode,
-              hint: "github.com/Demizo/Daily_You",
+              hint: "github.com/khanhx419/Dail_You",
               icon: Icon(Icons.open_in_new_rounded),
               onPressed: () async {
-                await launchUrl(Uri.https("github.com", "/Demizo/Daily_You"),
+                await launchUrl(Uri.https("github.com", "/khanhx419/Dail_You"),
                     mode: LaunchMode.externalApplication);
               }),
           SettingsIconAction(
@@ -91,7 +97,7 @@ class _AboutSettingsState extends State<AboutSettings> {
                     Uri(
                         scheme: "https",
                         host: "github.com",
-                        path: "/Demizo/Daily_You",
+                        path: "/khanhx419/Dail_You",
                         fragment: "license"),
                     mode: LaunchMode.externalApplication);
               }),
@@ -123,11 +129,11 @@ class _AboutSettingsState extends State<AboutSettings> {
           ),
           SettingsIconAction(
               title: AppLocalizations.of(context)!.errorReport,
-              hint: "github.com/Demizo/Daily_You/issues",
+              hint: "github.com/khanhx419/Dail_You/issues",
               icon: Icon(Icons.open_in_new_rounded),
               onPressed: () async {
                 await launchUrl(
-                    Uri.https("github.com", "/Demizo/Daily_You/issues"),
+                    Uri.https("github.com", "/khanhx419/Dail_You/issues"),
                     mode: LaunchMode.externalApplication);
               }),
         ],
